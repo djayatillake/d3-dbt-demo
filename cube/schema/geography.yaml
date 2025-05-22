@@ -1,0 +1,93 @@
+cubes:
+  - name: Geography
+    sql_table: ${CUBEJS_DB_SCHEMA}.dim_geography
+    
+    dimensions:
+      - name: country
+        sql: shipping_country
+        type: string
+        
+      - name: state
+        sql: shipping_state
+        type: string
+        
+      - name: city
+        sql: shipping_city
+        type: string
+        
+      - name: locationKey
+        sql: concat(${country}, '-', ${state}, '-', ${city})
+        type: string
+        primary_key: true
+        
+      - name: firstOrderDate
+        sql: first_order_date
+        type: time
+        
+      - name: lastOrderDate
+        sql: last_order_date
+        type: time
+        
+      - name: daysWithSales
+        sql: days_with_sales
+        type: number
+        
+      - name: revenueTier
+        sql: revenue_tier
+        type: string
+        
+      - name: marginTier
+        sql: margin_tier
+        type: string
+    
+    measures:
+      - name: count
+        type: count
+        
+      - name: numberOfOrders
+        sql: number_of_orders
+        type: sum
+        
+      - name: totalItemsSold
+        sql: total_items_sold
+        type: sum
+        
+      - name: grossRevenue
+        sql: gross_revenue
+        type: sum
+        format: currency
+        
+      - name: totalDiscounts
+        sql: total_discounts
+        type: sum
+        format: currency
+        
+      - name: netRevenue
+        sql: net_revenue
+        type: sum
+        format: currency
+        
+      - name: totalShippingCost
+        sql: total_shipping_cost
+        type: sum
+        format: currency
+        
+      - name: totalRevenueWithShipping
+        sql: total_revenue_with_shipping
+        type: sum
+        format: currency
+        
+      - name: totalCost
+        sql: total_cost
+        type: sum
+        format: currency
+        
+      - name: totalProfit
+        sql: total_profit
+        type: sum
+        format: currency
+        
+      - name: averageProfitMargin
+        sql: avg_profit_margin
+        type: avg
+        format: percent

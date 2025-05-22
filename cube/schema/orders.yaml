@@ -1,0 +1,142 @@
+cubes:
+  - name: Orders
+    sql_table: ${CUBEJS_DB_SCHEMA}.fact_orders
+    
+    joins:
+      - name: Customers
+        sql: ${Orders}.customer_id = ${Customers}.customer_id
+        relationship: many_to_one
+        
+      - name: OrderItems
+        sql: ${Orders}.order_id = ${OrderItems}.order_id
+        relationship: one_to_many
+    
+    dimensions:
+      - name: id
+        sql: order_id
+        type: number
+        primary_key: true
+        
+      - name: customerId
+        sql: customer_id
+        type: number
+        
+      - name: date
+        sql: order_date
+        type: time
+        
+      - name: month
+        sql: order_month
+        type: time
+        time_dimension: true
+        
+      - name: week
+        sql: order_week
+        type: time
+        
+      - name: year
+        sql: order_year
+        type: number
+        
+      - name: monthNumber
+        sql: month_number
+        type: number
+        
+      - name: quarterNumber
+        sql: quarter_number
+        type: number
+        
+      - name: status
+        sql: status
+        type: string
+        
+      - name: paymentMethod
+        sql: payment_method
+        type: string
+        
+      - name: city
+        sql: shipping_city
+        type: string
+        
+      - name: state
+        sql: shipping_state
+        type: string
+        
+      - name: country
+        sql: shipping_country
+        type: string
+        
+      - name: orderSize
+        sql: order_size
+        type: string
+        
+      - name: marginTier
+        sql: margin_tier
+        type: string
+    
+    measures:
+      - name: count
+        type: count
+        drill_members:
+          - id
+          - date
+          - customerId
+          - status
+          
+      - name: shippingCost
+        sql: shipping_cost
+        type: sum
+        format: currency
+        
+      - name: totalAmount
+        sql: total_amount
+        type: sum
+        format: currency
+        
+      - name: orderTotalWithShipping
+        sql: order_total_with_shipping
+        type: sum
+        format: currency
+        
+      - name: numberOfItems
+        sql: number_of_items
+        type: sum
+        
+      - name: totalQuantity
+        sql: total_quantity
+        type: sum
+        
+      - name: grossAmount
+        sql: total_gross_amount
+        type: sum
+        format: currency
+        
+      - name: totalDiscounts
+        sql: total_discounts
+        type: sum
+        format: currency
+        
+      - name: netAmount
+        sql: total_net_amount
+        type: sum
+        format: currency
+        
+      - name: totalCost
+        sql: total_cost
+        type: sum
+        format: currency
+        
+      - name: totalProfit
+        sql: total_profit
+        type: sum
+        format: currency
+        
+      - name: profitMargin
+        sql: profit_margin
+        type: avg
+        format: percent
+        
+      - name: averageOrderValue
+        sql: total_net_amount
+        type: avg
+        format: currency

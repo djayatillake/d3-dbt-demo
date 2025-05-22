@@ -1,0 +1,109 @@
+cubes:
+  - name: Customers
+    sql_table: ${CUBEJS_DB_SCHEMA}.dim_customers
+    
+    joins:
+      - name: Orders
+        sql: ${Customers}.customer_id = ${Orders}.customer_id
+        relationship: one_to_many
+    
+    dimensions:
+      - name: id
+        sql: customer_id
+        type: number
+        primary_key: true
+        
+      - name: firstName
+        sql: first_name
+        type: string
+        
+      - name: lastName
+        sql: last_name
+        type: string
+        
+      - name: fullName
+        sql: full_name
+        type: string
+        
+      - name: email
+        sql: email
+        type: string
+        
+      - name: city
+        sql: city
+        type: string
+        
+      - name: state
+        sql: state
+        type: string
+        
+      - name: country
+        sql: country
+        type: string
+        
+      - name: customerCreatedAt
+        sql: customer_created_at
+        type: time
+        
+      - name: customerUpdatedAt
+        sql: customer_updated_at
+        type: time
+        
+      - name: firstOrderDate
+        sql: first_order_date
+        type: time
+        
+      - name: lastOrderDate
+        sql: last_order_date
+        type: time
+        
+      - name: customerLifetimeDays
+        sql: customer_lifetime_days
+        type: number
+        
+      - name: daysSinceLastOrder
+        sql: days_since_last_order
+        type: number
+        
+      - name: customerSegment
+        sql: customer_segment
+        type: string
+        
+      - name: customerStatus
+        sql: customer_status
+        type: string
+    
+    measures:
+      - name: count
+        type: count
+        
+      - name: averageLifetimeValue
+        sql: lifetime_value
+        type: avg
+        
+      - name: totalLifetimeValue
+        sql: lifetime_value
+        type: sum
+        format: currency
+        
+      - name: totalLifetimeProfit
+        sql: lifetime_profit
+        type: sum
+        format: currency
+        
+      - name: averageOrderValue
+        sql: avg_order_value
+        type: avg
+        format: currency
+        
+      - name: totalOrders
+        sql: number_of_orders
+        type: sum
+        
+      - name: itemsPurchased
+        sql: total_items_purchased
+        type: sum
+        
+      - name: quantityPurchased
+        sql: total_quantity_purchased
+        type: sum

@@ -1,0 +1,101 @@
+views:
+  - name: sales_analytics
+    description: "Comprehensive view of sales performance across products and customers"
+    
+    cubes:
+      - join_path: Orders
+        includes:
+          - id
+          - date
+          - month
+          - week
+          - year
+          - status
+          - paymentMethod
+          - city
+          - state
+          - country
+          - count
+          - netAmount
+          - totalProfit
+          - profitMargin
+          - averageOrderValue
+      
+      - join_path: Orders.OrderItems
+        prefix: true
+        includes:
+          - quantity
+          - netAmount
+          - profit
+      
+      - join_path: OrderItems.Products
+        prefix: true
+        includes:
+          - name
+          - category
+          - currentPrice
+          - currentMargin
+      
+      - join_path: Orders.Customers
+        prefix: true
+        includes:
+          - fullName
+          - customerSegment
+          - customerStatus
+      
+      - join_path: Products.Categories
+        prefix: true
+        includes:
+          - totalRevenue
+          - totalProfit
+          - overallProfitMargin
+    
+    folders:
+      - name: Time Analysis
+        title: "Time Analysis"
+        description: "Time-based analysis of sales performance"
+        includes:
+          - Orders_date
+          - Orders_month
+          - Orders_week
+          - Orders_year
+      
+      - name: Customer Analysis
+        title: "Customer Analysis"
+        description: "Customer-based analysis of sales performance"
+        includes:
+          - Customers_fullName
+          - Customers_customerSegment
+          - Customers_customerStatus
+          - Orders_count
+          - Orders_averageOrderValue
+      
+      - name: Product Analysis
+        title: "Product Analysis"
+        description: "Product-based analysis of sales performance"
+        includes:
+          - Products_name
+          - Products_category
+          - Products_currentPrice
+          - OrderItems_quantity
+          - OrderItems_netAmount
+          - OrderItems_profit
+      
+      - name: Revenue & Profitability
+        title: "Revenue & Profitability"
+        description: "Revenue and profitability metrics"
+        includes:
+          - Orders_netAmount
+          - Orders_totalProfit
+          - Orders_profitMargin
+          - Categories_totalRevenue
+          - Categories_totalProfit
+          - Categories_overallProfitMargin
+      
+      - name: Geographic Analysis
+        title: "Geographic Analysis"
+        description: "Geographic analysis of sales performance"
+        includes:
+          - Orders_city
+          - Orders_state
+          - Orders_country

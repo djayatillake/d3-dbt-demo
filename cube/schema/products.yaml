@@ -1,0 +1,102 @@
+cubes:
+  - name: Products
+    sql_table: ${CUBEJS_DB_SCHEMA}.dim_products
+    
+    joins:
+      - name: Categories
+        sql: ${Products}.category = ${Categories}.category
+        relationship: many_to_one
+      
+      - name: OrderItems
+        sql: ${Products}.product_id = ${OrderItems}.product_id
+        relationship: one_to_many
+    
+    dimensions:
+      - name: id
+        sql: product_id
+        type: number
+        primary_key: true
+        
+      - name: name
+        sql: product_name
+        type: string
+        
+      - name: category
+        sql: category
+        type: string
+        
+      - name: currentPrice
+        sql: current_price
+        type: number
+        format: currency
+        
+      - name: currentCost
+        sql: current_cost
+        type: number
+        format: currency
+        
+      - name: currentMargin
+        sql: current_margin
+        type: number
+        format: currency
+        
+      - name: currentMarginPercent
+        sql: current_margin_percent
+        type: number
+        format: percent
+        
+      - name: firstOrderDate
+        sql: first_order_date
+        type: time
+        
+      - name: lastOrderDate
+        sql: last_order_date
+        type: time
+        
+      - name: daysSelling
+        sql: days_selling
+        type: number
+        
+      - name: daysSinceLastOrder
+        sql: days_since_last_order
+        type: number
+        
+      - name: salesTier
+        sql: sales_tier
+        type: string
+        
+      - name: marginTier
+        sql: margin_tier
+        type: string
+    
+    measures:
+      - name: count
+        type: count
+        
+      - name: timesOrdered
+        sql: times_ordered
+        type: sum
+        
+      - name: quantitySold
+        sql: total_quantity_sold
+        type: sum
+        
+      - name: totalRevenue
+        sql: total_revenue
+        type: sum
+        format: currency
+        
+      - name: totalCost
+        sql: total_cost
+        type: sum
+        format: currency
+        
+      - name: totalProfit
+        sql: total_profit
+        type: sum
+        format: currency
+        
+      - name: averageProfitMargin
+        sql: profit_margin
+        type: avg
+        format: percent

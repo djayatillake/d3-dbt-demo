@@ -1,0 +1,21 @@
+customer_id,first_name,last_name,email,city,state,country,created_at,updated_at
+1,John,Doe,john.doe@example.com,New York,NY,USA,2023-01-01,2023-01-01
+2,Jane,Smith,jane.smith@example.com,Los Angeles,CA,USA,2023-01-02,2023-01-02
+3,Bob,Johnson,bob.johnson@example.com,Chicago,IL,USA,2023-01-03,2023-01-03
+4,Alice,Williams,alice.williams@example.com,Houston,TX,USA,2023-01-04,2023-01-04
+5,Charlie,Brown,charlie.brown@example.com,Philadelphia,PA,USA,2023-01-05,2023-01-05
+6,Diana,Davis,diana.davis@example.com,Phoenix,AZ,USA,2023-01-06,2023-01-06
+7,Edward,Miller,edward.miller@example.com,San Antonio,TX,USA,2023-01-07,2023-01-07
+8,Fiona,Wilson,fiona.wilson@example.com,San Diego,CA,USA,2023-01-08,2023-01-08
+9,George,Moore,george.moore@example.com,Dallas,TX,USA,2023-01-09,2023-01-09
+10,Helen,Taylor,helen.taylor@example.com,San Jose,CA,USA,2023-01-10,2023-01-10
+11,Ian,Anderson,ian.anderson@example.com,Austin,TX,USA,2023-01-11,2023-01-11
+12,Julia,Thomas,julia.thomas@example.com,Jacksonville,FL,USA,2023-01-12,2023-01-12
+13,Kevin,Jackson,kevin.jackson@example.com,San Francisco,CA,USA,2023-01-13,2023-01-13
+14,Laura,White,laura.white@example.com,Indianapolis,IN,USA,2023-01-14,2023-01-14
+15,Mike,Harris,mike.harris@example.com,Columbus,OH,USA,2023-01-15,2023-01-15
+16,Nancy,Martin,nancy.martin@example.com,Fort Worth,TX,USA,2023-01-16,2023-01-16
+17,Oscar,Thompson,oscar.thompson@example.com,Charlotte,NC,USA,2023-01-17,2023-01-17
+18,Patty,Garcia,patty.garcia@example.com,Seattle,WA,USA,2023-01-18,2023-01-18
+19,Quincy,Martinez,quincy.martinez@example.com,Denver,CO,USA,2023-01-19,2023-01-19
+20,Rachel,Robinson,rachel.robinson@example.com,Washington,DC,USA,2023-01-20,2023-01-20

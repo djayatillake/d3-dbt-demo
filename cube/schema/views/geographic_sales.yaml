@@ -1,0 +1,97 @@
+views:
+  - name: geographic_sales
+    description: "Analysis of sales performance by geographic location"
+    
+    cubes:
+      - join_path: Geography
+        includes:
+          - country
+          - state
+          - city
+          - locationKey
+          - firstOrderDate
+          - lastOrderDate
+          - daysWithSales
+          - revenueTier
+          - marginTier
+          - count
+          - numberOfOrders
+          - totalItemsSold
+          - grossRevenue
+          - totalDiscounts
+          - netRevenue
+          - totalShippingCost
+          - totalRevenueWithShipping
+          - totalCost
+          - totalProfit
+          - averageProfitMargin
+      
+      - join_path: Orders
+        prefix: true
+        includes:
+          - date
+          - month
+          - year
+          - status
+          - paymentMethod
+      
+      - join_path: Orders.OrderItems
+        prefix: true
+        includes:
+          - quantity
+          - price
+          - discount
+          - netAmount
+      
+    folders:
+      - name: Location Information
+        title: "Location Information"
+        description: "Information about geographic locations"
+        includes:
+          - Geography_country
+          - Geography_state
+          - Geography_city
+          - Geography_locationKey
+      
+      - name: Time Analysis
+        title: "Time Analysis"
+        description: "Time-based analysis of geographic sales"
+        includes:
+          - Geography_firstOrderDate
+          - Geography_lastOrderDate
+          - Geography_daysWithSales
+          - Orders_date
+          - Orders_month
+          - Orders_year
+      
+      - name: Sales Performance
+        title: "Sales Performance"
+        description: "Sales performance metrics by location"
+        includes:
+          - Geography_numberOfOrders
+          - Geography_totalItemsSold
+          - Geography_grossRevenue
+          - Geography_netRevenue
+          - Geography_totalRevenueWithShipping
+          - Geography_revenueTier
+      
+      - name: Profitability
+        title: "Profitability"
+        description: "Profitability metrics by location"
+        includes:
+          - Geography_totalCost
+          - Geography_totalProfit
+          - Geography_averageProfitMargin
+          - Geography_marginTier
+          - Geography_totalDiscounts
+      
+      - name: Order Details
+        title: "Order Details"
+        description: "Detailed information about orders by location"
+        includes:
+          - Orders_status
+          - Orders_paymentMethod
+          - OrderItems_quantity
+          - OrderItems_price
+          - OrderItems_discount
+          - OrderItems_netAmount

@@ -1,0 +1,88 @@
+views:
+  - name: customer_insights
+    description: "Comprehensive view of customer behavior and purchasing patterns"
+    
+    cubes:
+      - join_path: Customers
+        includes:
+          - id
+          - firstName
+          - lastName
+          - fullName
+          - email
+          - city
+          - state
+          - country
+          - customerCreatedAt
+          - customerUpdatedAt
+          - firstOrderDate
+          - lastOrderDate
+          - customerLifetimeDays
+          - daysSinceLastOrder
+          - customerSegment
+          - customerStatus
+          - count
+          - averageLifetimeValue
+          - totalLifetimeValue
+          - totalOrders
+          - averageOrderValue
+          - itemsPurchased
+          - quantityPurchased
+      
+      - join_path: Customers.Orders
+        prefix: true
+        includes:
+          - count
+          - netAmount
+          - totalProfit
+      
+      - join_path: Orders.OrderItems
+        prefix: true
+        includes:
+          - quantity
+          - netAmount
+      
+    folders:
+      - name: Basic Details
+        title: "Basic Customer Details"
+        description: "Basic information about customers"
+        includes:
+          - Customers_id
+          - Customers_fullName
+          - Customers_email
+          - Customers_city
+          - Customers_state
+          - Customers_country
+          - Customers_customerCreatedAt
+          - Customers_customerStatus
+      
+      - name: Customer Segmentation
+        title: "Customer Segmentation"
+        description: "Customer segmentation information"
+        includes:
+          - Customers_customerSegment
+          - Customers_customerStatus
+          - Customers_customerLifetimeDays
+          - Customers_daysSinceLastOrder
+      
+      - name: Purchase History
+        title: "Purchase History"
+        description: "Customer purchase history information"
+        includes:
+          - Customers_firstOrderDate
+          - Customers_lastOrderDate
+          - Customers_totalOrders
+          - Customers_totalLifetimeValue
+          - Customers_averageOrderValue
+          - Customers_itemsPurchased
+          - Customers_quantityPurchased
+      
+      - name: Order Details
+        title: "Order Details"
+        description: "Detailed information about customer orders"
+        includes:
+          - Orders_count
+          - Orders_netAmount
+          - Orders_totalProfit
+          - OrderItems_quantity
+          - OrderItems_netAmount

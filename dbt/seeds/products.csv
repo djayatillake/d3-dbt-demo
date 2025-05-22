@@ -1,0 +1,26 @@
+product_id,product_name,category,price,cost,description,created_at,updated_at
+1,Basic T-Shirt,Clothing,19.99,8.50,Cotton t-shirt,2023-01-01,2023-01-01
+2,Premium Jeans,Clothing,89.99,35.75,Designer jeans,2023-01-01,2023-01-01
+3,Running Shoes,Footwear,129.99,52.00,Athletic running shoes,2023-01-01,2023-01-01
+4,Smartwatch,Electronics,249.99,110.00,Fitness tracking smartwatch,2023-01-01,2023-01-01
+5,Wireless Earbuds,Electronics,149.99,65.25,Bluetooth wireless earbuds,2023-01-01,2023-01-01
+6,Backpack,Accessories,59.99,22.50,Durable travel backpack,2023-01-01,2023-01-01
+7,Water Bottle,Accessories,24.99,9.75,Insulated water bottle,2023-01-01,2023-01-01
+8,Yoga Mat,Fitness,39.99,15.00,Non-slip yoga mat,2023-01-01,2023-01-01
+9,Protein Powder,Nutrition,54.99,21.25,Whey protein supplement,2023-01-01,2023-01-01
+10,Blender,Kitchen,79.99,32.00,Personal smoothie blender,2023-01-01,2023-01-01
+11,Coffee Maker,Kitchen,129.99,58.50,Programmable coffee maker,2023-01-02,2023-01-02
+12,Desk Lamp,Home,49.99,18.75,LED desk lamp,2023-01-02,2023-01-02
+13,Office Chair,Furniture,199.99,85.00,Ergonomic office chair,2023-01-02,2023-01-02
+14,Bluetooth Speaker,Electronics,89.99,38.25,Portable bluetooth speaker,2023-01-02,2023-01-02
+15,Sunglasses,Accessories,129.99,45.00,Polarized sunglasses,2023-01-02,2023-01-02
+16,Winter Jacket,Clothing,149.99,65.75,Insulated winter jacket,2023-01-03,2023-01-03
+17,Hiking Boots,Footwear,159.99,72.50,Waterproof hiking boots,2023-01-03,2023-01-03
+18,Fitness Tracker,Electronics,99.99,42.25,Activity tracking band,2023-01-03,2023-01-03
+19,Dumbbell Set,Fitness,149.99,60.00,Adjustable dumbbell set,2023-01-03,2023-01-03
+20,Cookbook,Books,34.99,12.75,Healthy recipes cookbook,2023-01-03,2023-01-03
+21,Headphones,Electronics,199.99,85.50,Noise-cancelling headphones,2023-01-04,2023-01-04
+22,Tablet,Electronics,399.99,180.00,10-inch tablet,2023-01-04,2023-01-04
+23,Dress Shoes,Footwear,109.99,45.25,Formal leather shoes,2023-01-04,2023-01-04
+24,Sweater,Clothing,69.99,27.50,Wool blend sweater,2023-01-04,2023-01-04
+25,Digital Camera,Electronics,599.99,275.00,Mirrorless digital camera,2023-01-05,2023-01-05

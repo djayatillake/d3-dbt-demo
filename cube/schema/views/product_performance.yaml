@@ -1,0 +1,92 @@
+views:
+  - name: product_performance
+    description: "Comprehensive view of product performance and inventory analysis"
+    
+    cubes:
+      - join_path: Products
+        includes:
+          - id
+          - name
+          - category
+          - currentPrice
+          - currentCost
+          - currentMargin
+          - currentMarginPercent
+          - salesTier
+          - marginTier
+          - firstOrderDate
+          - lastOrderDate
+          - daysSelling
+          - daysSinceLastOrder
+          - count
+          - timesOrdered
+          - quantitySold
+          - totalRevenue
+          - totalCost
+          - totalProfit
+          - averageProfitMargin
+      
+      - join_path: Products.Categories
+        prefix: true
+        includes:
+          - category
+          - numberOfProducts
+          - totalRevenue
+          - totalProfit
+          - overallProfitMargin
+          - revenueTier
+          - marginTier
+      
+      - join_path: Products.OrderItems
+        prefix: true
+        includes:
+          - quantity
+          - price
+          - discount
+          - netAmount
+          - profit
+      
+    folders:
+      - name: Product Details
+        title: "Product Details"
+        description: "Basic information about products"
+        includes:
+          - Products_id
+          - Products_name
+          - Products_category
+          - Products_currentPrice
+          - Products_currentCost
+          - Products_currentMargin
+          - Products_currentMarginPercent
+      
+      - name: Sales Performance
+        title: "Sales Performance"
+        description: "Product sales performance metrics"
+        includes:
+          - Products_salesTier
+          - Products_timesOrdered
+          - Products_quantitySold
+          - Products_totalRevenue
+          - Products_totalProfit
+          - Products_averageProfitMargin
+      
+      - name: Product History
+        title: "Product History"
+        description: "Historical data about products"
+        includes:
+          - Products_firstOrderDate
+          - Products_lastOrderDate
+          - Products_daysSelling
+          - Products_daysSinceLastOrder
+      
+      - name: Category Analysis
+        title: "Category Analysis"
+        description: "Analysis by product category"
+        includes:
+          - Categories_category
+          - Categories_numberOfProducts
+          - Categories_totalRevenue
+          - Categories_totalProfit
+          - Categories_overallProfitMargin
+          - Categories_revenueTier
+          - Categories_marginTier

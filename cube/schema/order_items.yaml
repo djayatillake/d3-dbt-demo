@@ -1,0 +1,146 @@
+cubes:
+  - name: OrderItems
+    sql_table: ${CUBEJS_DB_SCHEMA}.fact_order_items
+    
+    joins:
+      - name: Orders
+        sql: ${OrderItems}.order_id = ${Orders}.order_id
+        relationship: many_to_one
+        
+      - name: Products
+        sql: ${OrderItems}.product_id = ${Products}.product_id
+        relationship: many_to_one
+        
+      - name: Customers
+        sql: ${OrderItems}.customer_id = ${Customers}.customer_id
+        relationship: many_to_one
+    
+    dimensions:
+      - name: id
+        sql: order_item_id
+        type: number
+        primary_key: true
+        
+      - name: orderId
+        sql: order_id
+        type: number
+        
+      - name: customerId
+        sql: customer_id
+        type: number
+        
+      - name: productId
+        sql: product_id
+        type: number
+        
+      - name: category
+        sql: category
+        type: string
+        
+      - name: date
+        sql: order_date
+        type: time
+        
+      - name: month
+        sql: order_month
+        type: time
+        time_dimension: true
+        
+      - name: week
+        sql: order_week
+        type: time
+        
+      - name: year
+        sql: order_year
+        type: number
+        
+      - name: monthNumber
+        sql: month_number
+        type: number
+        
+      - name: quarterNumber
+        sql: quarter_number
+        type: number
+        
+      - name: status
+        sql: status
+        type: string
+        
+      - name: paymentMethod
+        sql: payment_method
+        type: string
+        
+      - name: city
+        sql: shipping_city
+        type: string
+        
+      - name: state
+        sql: shipping_state
+        type: string
+        
+      - name: country
+        sql: shipping_country
+        type: string
+    
+    measures:
+      - name: count
+        type: count
+        drill_members:
+          - id
+          - orderId
+          - productId
+          - date
+          
+      - name: quantity
+        sql: quantity
+        type: sum
+        
+      - name: price
+        sql: price
+        type: avg
+        format: currency
+        
+      - name: discount
+        sql: discount
+        type: sum
+        format: currency
+        
+      - name: totalAmount
+        sql: total_amount
+        type: sum
+        format: currency
+        
+      - name: grossAmount
+        sql: gross_amount
+        type: sum
+        format: currency
+        
+      - name: totalDiscount
+        sql: total_discount
+        type: sum
+        format: currency
+        
+      - name: netAmount
+        sql: net_amount
+        type: sum
+        format: currency
+        
+      - name: unitCost
+        sql: unit_cost
+        type: avg
+        format: currency
+        
+      - name: totalCost
+        sql: total_cost
+        type: sum
+        format: currency
+        
+      - name: profit
+        sql: profit
+        type: sum
+        format: currency
+        
+      - name: profitMargin
+        sql: profit_margin
+        type: avg
+        format: percent
